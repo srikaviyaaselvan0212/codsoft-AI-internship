@@ -1,1 +1,0 @@
-# codsoft-AI-internship
