@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Recommendation System</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9966,#ff5e62);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:400px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#333;
+}
+
+select,button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    font-size:16px;
+    border-radius:8px;
+}
+
+button{
+    background:#28a745;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#218838;
+}
+
+#result{
+    margin-top:20px;
+    text-align:left;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎬 Movie Recommendation</h1>
+
+    <select id="movie">
+        <option>Vikram</option>
+        <option>Leo</option>
+        <option>Jailer</option>
+        <option>Master</option>
+        <option>Kaithi</option>
+        <option>Ponniyin Selvan</option>
+    </select>
+
+    <button onclick="recommendMovie()">
+        Get Recommendations
+    </button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+const movies = {
+    "Vikram": ["Kaithi", "Master", "Leo"],
+    "Leo": ["Vikram", "Master", "Kaithi"],
+    "Jailer": ["Petta", "Kabali", "Darbar"],
+    "Master": ["Leo", "Vikram", "Beast"],
+    "Kaithi": ["Vikram", "Master", "Leo"],
+    "Ponniyin Selvan": ["Ayirathil Oruvan", "Raavanan", "Kanguva"]
+};
+
+function recommendMovie(){
+    let selectedMovie = document.getElementById("movie").value;
+    let recommendations = movies[selectedMovie];
+
+    document.getElementById("result").innerHTML =
+    `<h3>Recommended Movies:</h3>
+     <ul>
+        <li>${recommendations[0]}</li>
+        <li>${recommendations[1]}</li>
+        <li>${recommendations[2]}</li>
+     </ul>`;
+}
+</script>
+
+</body>
+</html>
